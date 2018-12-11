@@ -1,0 +1,334 @@
+
+* {
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+.product-page{
+  font-size: calc(5px + 0.4vw);
+	position: relative;
+	width: 100%;
+	height: 100vh;
+}
+.product-details {
+	float: right;
+	height: 100%;
+	width: 50%;
+	padding: 1rem 3rem 3rem 5rem;
+	display: table;
+
+
+}
+.product-details > div {
+	display: table-cell;
+	vertical-align: middle;
+}
+.product-page span {
+  color: #c2b161;
+  font-size: 3rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  display: inline-block;
+  text-transform: uppercase;
+
+  margin-bottom: 4rem;
+}
+.product-page h1 {
+	font-size: 5em;
+	margin-bottom: 3rem;
+}
+.product-page h1 + p {
+  color: #292728;
+  font-size: 1.6rem;
+  margin-bottom: 4rem;
+}
+.product-page p + a {
+  font-size: 1.6rem;
+  color: #292728;
+}
+.product-slider {
+	float: left;
+	position: relative;
+	width: 50%;
+	height: 100%;
+
+}
+.product-slider li {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	-webkit-transition: clip .7s ease-in-out, z-index 0s .7s;
+	transition: clip .7s ease-in-out, z-index 0s .7s;
+	clip: rect(0, 100vw, 100vh, 100vw);
+	display: table;
+}
+.product-slide {
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+	color: #fff;
+
+
+}
+.product-page h3 {
+	font-size: 3rem;
+}
+.product-page h3 + a {
+	font-size: 1.6rem;
+	display: inline-block;
+	color: #fff;
+	margin-top: 2rem;
+}
+.product-page h3, h3 + a {
+	opacity: 0;
+	-webkit-transition: opacity .7s 0s, -webkit-transform .5s .2s;
+	transition: opacity .7s 0s, -webkit-transform .5s .2s;
+	transition: opacity .7s 0s, transform .5s .2s;
+	transition: opacity .7s 0s, transform .5s .2s, -webkit-transform .5s .2s;
+	-webkit-transform: translate3d(0, 50%, 0);
+	        transform: translate3d(0, 50%, 0);
+}
+li.product-current h3, li.product-current h3 + a {
+	opacity: 1;
+	-webkit-transition-delay: 1s;
+	        transition-delay: 1s;
+	-webkit-transform: translate3d(0, 0, 0);
+	        transform: translate3d(0, 0, 0);
+}
+li.product-current {
+	z-index: 1;
+	clip: rect(0, 100vw, 100vh, 0);
+
+}
+li.prev {
+	clip: rect(0, 0, 100vh, 0);
+}
+.product-slider nav {
+	position: absolute;
+	bottom: 5%;
+	left: 0;
+	right: 0;
+	text-align: center;
+	z-index: 10;
+}
+.product-page nav a {
+	display: inline-block;
+	border-radius: 50%;
+	width: .8rem;
+	height: .8rem;
+  min-width: 12px;
+  min-height: 12px;
+	background: #292728;
+	margin: 0 1rem;
+  -webkit-transition: -webkit-transform .3s;
+  transition: -webkit-transform .3s;
+  transition: transform .3s;
+  transition: transform .3s, -webkit-transform .3s;
+}
+a.product-current_dot {
+	-webkit-transform: scale(1.4);
+	        transform: scale(1.4);
+}
+@media screen and (max-width: 700px) {
+	.product-details {
+		width: 100%;
+		height: 30%;
+    position: relative;
+    background-color: #fff;
+    z-index: 10;
+	}
+	.product-slider {
+		width: 100%;
+		height: 70%;
+	}
+}
+
+/***START ACCORDION***/
+
+.heading-primary {
+  font-size: 2em;
+  padding: 2em;
+  text-align: center;
+}
+
+a.accordion-title{
+  text-transform: uppercase;
+  overflow: hidden;
+  padding: 1.5em;
+  margin: 0;
+}
+
+.accordion dl,
+.accordion-list {
+
+}
+
+.accordion dl:after,
+.accordion-list:after {
+  content: "";
+  display: block;
+  height: .5em;
+  width: 100%;
+  background-color: #b8ab81;
+}
+
+.accordion dd,
+.accordion__panel {
+  background-color: #fff;
+  font-size: 1em;
+  line-height: 1.5em;
+  overflow: hidden;
+}
+
+.accordion p {
+  padding: 1em 2em 1em 2em;
+}
+
+.accordion {
+  position: relative;
+  background-color: #eee;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+
+}
+
+.accordionTitle,
+.accordion__Heading {
+  background-color: #292728;
+  text-align: center;
+  font-weight: 400;
+  padding: 2em;
+  display: block;
+  -webkit-text-decoration: uppercase;
+          text-decoration: uppercase;
+  color: #fff;
+  -webkit-transition: background-color 0.5s ease-in-out;
+  transition: background-color 0.5s ease-in-out;
+  border-bottom: 1px solid #c2b161;
+}
+.accordionTitle:before,
+.accordion__Heading:before {
+  content: "+";
+  font-size: 1.5em;
+  line-height: 0.5em;
+  float: left;
+  transition: -webkit-transform 0.3s ease-in-out;
+  -webkit-transition: -webkit-transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+}
+.accordionTitle:hover,
+.accordion__Heading:hover {
+  background-color: #6e6e6e;
+}
+
+.accordionTitleActive,
+.accordionTitle.is-expanded {
+  background-color: #6e6e6e;
+}
+.accordionTitleActive:before,
+.accordionTitle.is-expanded:before {
+  -webkit-transform: rotate(-225deg);
+          transform: rotate(-225deg);
+}
+
+.accordionItem {
+  height: auto;
+  overflow: hidden;
+  max-height: 50em;
+  -webkit-transition: max-height 1s;
+  transition: max-height 1s;
+}
+@media screen and (min-width: 48em) {
+  .accordionItem {
+    max-height: 15em;
+    -webkit-transition: max-height 0.5s;
+    transition: max-height 0.5s;
+  }
+}
+
+.accordionItem.is-collapsed {
+  max-height: 0;
+}
+
+.no-js .accordionItem.is-collapsed {
+  max-height: auto;
+}
+
+.animateIn {
+  -webkit-animation: accordionIn 0.45s normal ease-in-out both 1;
+          animation: accordionIn 0.45s normal ease-in-out both 1;
+}
+
+.animateOut {
+  -webkit-animation: accordionOut 0.45s alternate ease-in-out both 1;
+          animation: accordionOut 0.45s alternate ease-in-out both 1;
+}
+
+@-webkit-keyframes accordionIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.9) rotateX(-60deg);
+            transform: scale(0.9) rotateX(-60deg);
+    -webkit-transform-origin: 50% 0;
+            transform-origin: 50% 0;
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes accordionIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.9) rotateX(-60deg);
+            transform: scale(0.9) rotateX(-60deg);
+    -webkit-transform-origin: 50% 0;
+            transform-origin: 50% 0;
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+@-webkit-keyframes accordionOut {
+  0% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(0.9) rotateX(-60deg);
+            transform: scale(0.9) rotateX(-60deg);
+  }
+}
+@keyframes accordionOut {
+  0% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(0.9) rotateX(-60deg);
+            transform: scale(0.9) rotateX(-60deg);
+  }
+}
+
+/***BUY AREA***/
