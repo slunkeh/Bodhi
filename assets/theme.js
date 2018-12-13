@@ -18,11 +18,14 @@ $(document).ready(function(){
 
 // START NAV BAR FADE
 
-$(function () {
-  $(document).scroll(function () {
-    var $nav = $(".header-container");
-    $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
-  });
+var prev = 0;
+var $window = $(window);
+var nav = $('.container-nav');
+
+$window.on('scroll', function(){
+  var scrollTop = $window.scrollTop();
+  nav.toggleClass('hidden', scrollTop > prev);
+  prev = scrollTop;
 });
 
 // END NAV BAR FADE
@@ -116,4 +119,9 @@ $(window).scroll(function() {
      }
  });
 
- 
+ //MODAL BOX
+ $(document).ready(function() {
+   $('.modal-box').on('click', () => {
+     $('.modal-container').fadeOut(200);
+   })
+ });

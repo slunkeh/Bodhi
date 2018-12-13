@@ -3,29 +3,46 @@
 
     <div class="footer-nav">
       <ul>
-        <li>About Us</li>
-        <li>Shipping</li>
-        <li>Farms</li>
-        <li>Our Facilities</li>
-        <li>Wholesale</li>
-        <li>Terms</li>
-        <li>Privacy Policy</li>
+        {% for link in linklists[section.settings.footer_linklist].links %}
+        <li> <a href= "{{link.url}}">{{link.title}}</a></li>
+        {% endfor %}
       </ul>
     </div>
     <div class="footer-address">
-      <p><strong>Bodhi Ltd</strong> / 6 Hamilton Place,
-      Edinburgh,
-      EH3 5AU,
-        United Kingdom</p>
+      <p><strong>{{ section.settings.company-name }}</strong> / {{ section.settings.company-address }}</p>
     </div>
     <div class="footer-social">
       <ul>
-        <li><i class="fab fa-facebook-f"></i></li>
-        <li><i class="fab fa-instagram"></i></li>
-        <li><i class="fab fa-pinterest"></i></li>
-        <li><i class="fab fa-youtube"></i>
+        {% if section.settings.facebook != blank %}
+        <li>
+          <a href="{{ section.settings.facebook }}">
+            <i class="fab fa-facebook-f"></i>
+            </a>
+        </li>
+        {% endif %}
+        {% if section.settings.instagram != blank %}
+        <li>
+          <a href="{{ section.settings.instagram }}">
+            <i class="fab fa-instagram"></i>
+            </a>
+          </li>
+          {% endif %}
+          {% if section.settings.twitter != blank %}
+        <li>
+          <a href="{{ section.settings.twitter }}">
+          <i class="fab fa-twitter"></i>
+          </a>
+        </li>
+        {% endif %}
+        {% if section.settings.youtube != blank %}
+        <li>
+          <a href="{{ section.settings.youtube }}">
+            <i class="fab fa-youtube"></i>
+          </a>
+        </li>
+        {% endif %}
       </ul>
-      </li>
+
 
     </div>
 
@@ -45,3 +62,47 @@
     </div>
   </div>
 </footer>
+
+{% schema %}
+  {
+    "name": "Footer",
+    "settings": [
+    {
+      "type": "url",
+      "id": "facebook",
+      "label": "Facebook Link"
+    },
+    {
+      "type": "url",
+      "id": "instagram",
+      "label": "Instagram Link"
+    },
+    {
+      "type": "url",
+      "id": "twitter",
+      "label": "Twitter Link"
+    },
+    {
+      "type": "url",
+      "id": "youtube",
+      "label": "Youtube Link"
+    },
+      {
+        "type": "link_list",
+        "id": "footer_linklist",
+        "label": "Link List",
+        "default": "main-menu"
+      },
+      {
+        "type": "text",
+        "id": "company-name",
+        "label": "Company Name"
+      },
+      {
+        "type": "textarea",
+        "id": "company-address",
+        "label": "Company Address"
+      }
+    ]
+  }
+{% endschema %}

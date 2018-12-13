@@ -5,21 +5,24 @@
  * if there are multiple videos in your site.
  * I.e. '.demo-video-wrapper' is the name of this particular video
  */
-.demo-video-wrapper h1 {
-  color: #292728;
-  font-size: 3em;
-  margin-bottom: 0;
-}
-
-.demo-video-wrapper h2 {
-  color: #c2b161;
-  font-size: 1.5em;
-}
 
 .demo-video-wrapper {
   background-image: url(https://d3k5xyayaartr5.cloudfront.net/_assets/home-video/beach-waves-loop.jpg);
   min-height: 100vh;
   max-height: 150vh;
+}
+
+.demo-video-wrapper h1 {
+  color: #292728;
+  font-size: 3em;
+  margin-bottom: 0;
+
+
+}
+
+.demo-video-wrapper h2 {
+  color: #c2b161;
+  font-size: 1.5em;
 }
 
 /* Video overlay and content */
@@ -33,6 +36,7 @@
   /* Allows right click menu on the video */
   background: url("https://d3k5xyayaartr5.cloudfront.net/_assets/pattern-overlays/patterns/black-medium-checks.png") left top repeat;
   opacity: 0.3;
+  width: 100%;
 }
 
 .video-hero--content {
@@ -43,9 +47,11 @@
 }
 
 .video-hero--content h2 {
-  font-size: 34px;
-  margin: 0 0 10px;
+  font-size: 32px;
+  margin: 0 0 1em;
+  text-transform: uppercase;
 }
+
 
 .video-hero--content p {
   font-size: 20px;
@@ -72,8 +78,7 @@
 }
 
 .page-width {
-  width: 92%;
-  max-width: 960px;
+  max-width: 100%;
   margin: 0 auto;
 }
 

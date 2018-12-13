@@ -1,22 +1,15 @@
 <!---FULL SCREEN NAV--->
 <section id="desktop-nav">
-<nav class="grid-container-nav">
-  <div class="left-nav">
-    <ul>
-      <li>CBD FLOWER</li>
-      <li>ACCESSORIES</li>
-      <li>MULTI PACKS</li>
-    </ul>
-  </div>
-  <div class="logo"><img src="https://cdn.shopify.com/s/files/1/0063/1360/7266/files/logoblack.png?14544251487220134235" alt="logo"></div>
-  <div class="right-nav">
-    <ul>
-      <li>OUR CRAFT</li>
-      <li>WHY US?</li>
-      <li>BLOG</li>
-      <li><i class="fa fa-shopping-bag"></i></li>
-      <li><i class="fa fa-user"></i></li>
-    </ul>
+<nav class="container-nav">
+  <div class="logo"><a href="{{ section.settings.logo-link }}"><img src="{{ section.settings.navigation-logo | img_url: '1920x' }}" alt="logo"></a></div>
+  <div class="nav-links">
+      <ul>
+        {% for link in linklists[section.settings.main_linklist].links %}
+        <li> <a href= "{{link.url}}">{{link.title}}</a></li>
+        {% endfor %}
+        <li><i class="fa fa-shopping-bag"></i></li>
+        <li><i class="fa fa-user"></i></li>
+      </ul>
     </div>
 	  </nav>
 </section>
@@ -59,3 +52,27 @@
 </nav>
 </header>
 </section>
+
+{% schema %}
+  {
+    "name": "Header",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "navigation-logo",
+        "label": "Navigation Logo"
+      },
+      {
+        "type": "url",
+        "id": "logo-link",
+        "label": "Logo Link"
+      },
+      {
+        "type": "link_list",
+        "id": "main_linklist",
+        "label": "Navigation Link List",
+        "default": "main-menu"
+      }
+    ]
+  }
+{% endschema %}

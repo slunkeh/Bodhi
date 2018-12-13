@@ -1,5 +1,18 @@
 <section>
-  <div class="paralax-container">
-    
+  <div class="paralax-container" style="background-image:url({{ section.settings.paralax-image | img_url: '1920x' }})">
+
   </div>
 </section>
+
+{% schema %}
+{
+  "name": "Paralax Image",
+  "settings": [
+  {
+    "type": "image_picker",
+    "id": "paralax-image",
+    "label": "paralax image"
+  }
+  ]
+}
+{% endschema %}

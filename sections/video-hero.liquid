@@ -11,11 +11,40 @@
 	  <div class="video-overlay"></div>
   	<div class="page-width">
 		    <div class="video-hero--content">
-			      <h1>EXPERIENCE CRAFT HEMP</h1>
-			      <h2>SWISS GROWN CBD FLOWER</h2>
-          <img src="https://cdn.shopify.com/s/files/1/0063/1360/7266/files/bodhi-packaging.png?11767535414128066820" alt="">
+			      <h1>{{ section.settings.hero-h1 }}</h1>
+			      <h2>{{ section.settings.hero-h2 }}</h2>
+          <a href="{{ section.settings.hero-image-link }}"><img src="{{ section.settings.hero-image | img_url: '1920x' }}"/></a>
     		</div>
   	</div>
 </div>
 </section>
 <!-- End video hero -->
+
+
+{% schema %}
+{
+  "name": "Hero Image",
+  "settings": [
+  {
+    "type": "text",
+    "id": "hero-h1",
+    "label": "Heading Text"
+  },
+  {
+    "type": "text",
+    "id": "hero-h2",
+    "label": "Sub Heading Text"
+  },
+  {
+    "type": "image_picker",
+    "id": "hero-image",
+    "label": "Hero Image"
+  },
+  {
+    "type": "url",
+    "id": "hero-image-link",
+    "label": "Hero Image Link"
+  }
+  ]
+}
+{% endschema %}

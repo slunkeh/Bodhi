@@ -1,13 +1,49 @@
 <section id="info">
-		<div class="info-grid-container">
+		<div class="info-container">
 		<div class="info-content">
-      <h1>Taste swiss</h1>
-      <h3>From the mountains</h3>
-      <p>Here at Bodhi we produce only the finest quality CBD Flower. Imported from our growing facilities in Switzerland, you will experiance a distinct flavour cultivited in the Swiss climate.</p>
+      <h1>{{ section.settings.info-banner-h1 }}</h1>
+      <h3>{{ section.settings.info-banner-h3 }}</h3>
+			<div class="info-p-content">
+      <p>{{ section.settings.info-banner-text }}</p>
+			</div>
+			<div class="info-button">
+      <a href="{{ section.settings.info-button-url }}"><button class="btn fifth">{{ section.settings.info-button-text }}</button></a>
+        </div>
       </div>
 
-      <div class="info-button">
-      <button class="btn fifth">Learn More</button>
-        </div>
+
 
 	  </section>
+
+		{% schema %}
+		{
+		  "name": "Homepage Info Banner",
+		  "settings": [
+		  {
+		    "type": "text",
+		    "id": "info-banner-h1",
+		    "label": "Heading Text"
+		  },
+		  {
+		    "type": "text",
+		    "id": "info-banner-h3",
+		    "label": "Sub Heading Text"
+		  },
+			{
+			 "type": "textarea",
+			 "id": "info-banner-text",
+			 "label": "Text"
+		 },
+		  {
+		    "type": "text",
+		    "id": "info-button-text",
+		    "label": "Button Text"
+		  },
+			{
+		    "type": "url",
+		    "id": "info-button-url",
+		    "label": "Button Link"
+		  }
+		  ]
+		}
+		{% endschema %}
